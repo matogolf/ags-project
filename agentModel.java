@@ -80,9 +80,14 @@ package mining;
     public int getCapacityLeft(){
         int capacity=getCapacity();
         int capacityLeft=0;
-        for(int i=0;i<capacity;i++)
+        for(int i=0;i<capacity;i++){
             if(bag[i]==0)
                 capacityLeft++;
+	    if(bag[i]==WorldModel.DWObjects.WATER){
+		capacityLeft=0;
+		i=capacity;
+	    }
+	}
         return(capacityLeft);
     }
 

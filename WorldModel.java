@@ -37,7 +37,8 @@ public class WorldModel extends GridWorldModel
   
     
 private static int _moneyLimit=100;
-private static int _dominanceLimit=15;
+private static int _dominanceLimit=20;
+
 private Location depot;
 private Set<Location> clearLocations = new HashSet<Location>(); // namisto zaremovanych, zvednute objekty se vymazi az po ckonceni kola   
 private Logger logger   = Logger.getLogger("jasonTeamSimLocal.mas2j." + WorldModel.class.getName());

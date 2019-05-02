@@ -302,7 +302,18 @@ public class MiningPlanet extends jason.environment.Environment
       addPercept(druidName,Literal.parseLiteral("depot(wood,"+items[3]+")"));
       addPercept(druidName,Literal.parseLiteral("depot(gold,"+items[4]+")"));  
       addPercept(druidName,Literal.parseLiteral("money(us,"+mus+")"));  
-      addPercept(druidName,Literal.parseLiteral("money(them,"+mthem+")"));  
+      addPercept(druidName,Literal.parseLiteral("money(them,"+mthem+")")); 
+      if(model.getAgIdBasedOnName(druidName)==6){
+	addPercept(druidName,Literal.parseLiteral("friend(aFast)"));
+	addPercept(druidName,Literal.parseLiteral("friend(aSlow)"));
+	addPercept(druidName,Literal.parseLiteral("friend(aMiddle)"));
+	}
+	else{
+	addPercept(druidName,Literal.parseLiteral("friend(bFast)"));
+	addPercept(druidName,Literal.parseLiteral("friend(bSlow)"));
+	addPercept(druidName,Literal.parseLiteral("friend(bMiddle)"));
+	}
+ 
       for(int[] spell:spells){
           String spellS="spell(";
           spellS=String.format("spell(%d,%d,%d,%d)",spell[0],spell[1],spell[2],spell[3]);
@@ -382,6 +393,7 @@ public class MiningPlanet extends jason.environment.Environment
         if (i != ag)
           addPercept(agName, Literal.parseLiteral("friend(" + model.getAgNameBasedOnId(i) + ")"));
       }
+	addPercept(agName, Literal.parseLiteral("friend(" + model.getAgNameBasedOnId(6) + ")"));
     }
     else
     {
@@ -390,6 +402,7 @@ public class MiningPlanet extends jason.environment.Environment
         if (i != ag)
           addPercept(agName, Literal.parseLiteral("friend(" + model.getAgNameBasedOnId(i) + ")"));
       }
+	addPercept(agName, Literal.parseLiteral("friend(" + model.getAgNameBasedOnId(7) + ")"));
     }
     
     // what's around

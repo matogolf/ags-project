@@ -5,7 +5,7 @@ get_direction_coords(right,DirX,DirY) :- pos(MyX,MyY) & DirX=MyX+1 & DirY=MyY.
 get_direction_coords(down,DirX,DirY) :- pos(MyX,MyY) & DirX=MyX & DirY=MyY+1.
 
 can_move(Direction) :- get_direction_coords(Direction,DirX,DirY) & grid_size(MaxX,MaxY) &
-                       DirX > 0 & DirX < MaxX & DirY > 0 & DirX < MaxY & 
+                       DirX >= 0 & DirX < MaxX & DirY >= 0 & DirX < MaxY & 
                        not(blocked_tile(DirX, DirY)) & not(water(DirX, DirY)) & not(stone(DirX, DirY)).
 
 continue_horizontal_movement(X,DestX) :- X \== DestX.
